@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.toast">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Sistema de Estacionamiento CRUD"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Toast"
+        tools:targetApi="31">
+
+        <!-- SplashActivity - Pantalla de inicio que se ejecuta primero -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- LoginActivity - Pantalla de inicio de sesión -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:label="Iniciar Sesión" />
+
+        <!-- MenuActivity - Pantalla principal del menú -->
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false"
+            android:label="Menú Principal" />
+
+        <!-- AgregarVehiculoActivity - Pantalla para agregar nuevos vehículos (CREATE) -->
+        <activity
+            android:name=".AgregarVehiculoActivity"
+            android:exported="false"
+            android:label="Agregar Vehículo"
+            android:parentActivityName=".MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity" />
+        </activity>
+
+        <!-- ListaVehiculosActivity - Pantalla para mostrar lista de vehículos (READ/DELETE) -->
+        <activity
+            android:name=".ListaVehiculosActivity"
+            android:exported="false"
+            android:label="Lista de Vehículos"
+            android:parentActivityName=".MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity" />
+        </activity>
+
+        <!-- EditarVehiculoActivity - Pantalla para editar vehículos existentes (UPDATE) -->
+        <activity
+            android:name=".EditarVehiculoActivity"
+            android:exported="false"
+            android:label="Editar Vehículo"
+            android:parentActivityName=".ListaVehiculosActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListaVehiculosActivity" />
+        </activity>
+
+    </application>
+</manifest>
